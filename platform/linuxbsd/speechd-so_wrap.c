@@ -236,7 +236,7 @@ char* (*spd_send_data_wo_mutex_dylibloader_wrapper_speechd)( SPDConnection*,cons
 int initialize_speechd(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libspeechd.so.2", RTLD_LAZY);
+  handle = dlopen("libspeechd.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());

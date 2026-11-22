@@ -1825,7 +1825,7 @@ void (*XkbUpdateKeyTypeVirtualMods_dylibloader_wrapper_xlib)(XkbDescPtr, XkbKeyT
 int initialize_xlib(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libX11.so.6", RTLD_LAZY);
+  handle = dlopen("libX11.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());

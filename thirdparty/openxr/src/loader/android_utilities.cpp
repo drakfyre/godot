@@ -7,7 +7,7 @@
 
 #include "android_utilities.h"
 
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 #include <wrap/android.net.h>
 #include <wrap/android.content.h>
 #include <wrap/android.database.h>

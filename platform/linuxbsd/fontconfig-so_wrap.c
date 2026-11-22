@@ -626,7 +626,7 @@ FcBool (*FcConfigParseAndLoadFromMemory_dylibloader_wrapper_fontconfig)( FcConfi
 int initialize_fontconfig(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libfontconfig.so.1", RTLD_LAZY);
+  handle = dlopen("libfontconfig.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());

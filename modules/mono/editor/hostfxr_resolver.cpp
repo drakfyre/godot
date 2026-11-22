@@ -202,7 +202,7 @@ bool get_default_installation_dir(String &r_dotnet_root) {
 
 	return true;
 #else
-	r_dotnet_root = "/usr/share/dotnet";
+	r_dotnet_root = "/data/data/com.termux/files/usr/share/dotnet";
 	return true;
 #endif
 }

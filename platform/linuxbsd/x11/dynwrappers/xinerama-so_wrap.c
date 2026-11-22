@@ -23,7 +23,7 @@ XineramaScreenInfo *(*XineramaQueryScreens_dylibloader_wrapper_xinerama)(Display
 int initialize_xinerama(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libXinerama.so.1", RTLD_LAZY);
+  handle = dlopen("libXinerama.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());

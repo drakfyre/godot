@@ -21,7 +21,7 @@ std::unique_ptr<LoaderLogRecorder> MakeStdErrLoaderLogRecorder(void* user_data);
 //! Standard Output logger used with XR_LOADER_DEBUG environment variable.
 std::unique_ptr<LoaderLogRecorder> MakeStdOutLoaderLogRecorder(void* user_data, XrLoaderLogMessageSeverityFlags flags);
 
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 //! Android liblog ("logcat") logger
 std::unique_ptr<LoaderLogRecorder> MakeLogcatLoaderLogRecorder();
 #endif

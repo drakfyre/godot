@@ -163,6 +163,20 @@ namespace embree
 
 #if defined(__LINUX__) && !defined(__ANDROID__)
 
+#if defined(__BIONIC__)
+static inline int pthread_setaffinity_np(pthread_t thread, size_t cpusetsize,
+                                         cpu_set_t *cpuset) {
+  assert(pthread_equal(pthread_self(), thread));
+  return sched_setaffinity(0, cpusetsize, cpuset);
+}
+
+static inline int pthread_getaffinity_np(pthread_t thread, size_t cpusetsize,
+                                         cpu_set_t *cpuset) {
+  assert(pthread_equal(pthread_self(), thread));
+  return sched_getaffinity(0, cpusetsize, cpuset);
+}
+#endif
+
 #include <fstream>
 #include <sstream>
 #include <algorithm>

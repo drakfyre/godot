@@ -46,7 +46,7 @@ XRectangle *(*XShapeGetRectangles_dylibloader_wrapper_xext)(Display *, Window, i
 int initialize_xext(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libXext.so.6", RTLD_LAZY);
+  handle = dlopen("libXext.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());

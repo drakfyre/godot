@@ -20,13 +20,13 @@ namespace GodotTools.Build
             {
                 if (RuntimeInformation.OSArchitecture == Architecture.X64)
                 {
-                    string dotnet_x64 = "/usr/local/share/dotnet/x64/dotnet"; // Look for x64 version, when running under Rosetta 2.
+                    string dotnet_x64 = "/data/data/com.termux/files/usr/share/dotnet/x64/dotnet"; // Look for x64 version, when running under Rosetta 2.
                     if (File.Exists(dotnet_x64))
                     {
                         return dotnet_x64;
                     }
                 }
-                string dotnet = "/usr/local/share/dotnet/dotnet"; // Look for native version.
+                string dotnet = "/data/data/com.termux/files/usr/share/dotnet/dotnet"; // Look for native version.
                 if (File.Exists(dotnet))
                 {
                     return dotnet;

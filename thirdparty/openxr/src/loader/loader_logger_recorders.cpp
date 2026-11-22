@@ -20,7 +20,7 @@
 #include <iostream>
 #include <sstream>
 
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 #include "android/log.h"
 #endif
 
@@ -96,7 +96,7 @@ class DebugUtilsLogRecorder : public LoaderLogRecorder {
    private:
     PFN_xrDebugUtilsMessengerCallbackEXT _user_callback;
 };
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 
 class LogcatLoaderLogRecorder : public LoaderLogRecorder {
    public:
@@ -195,7 +195,7 @@ bool DebugUtilsLogRecorder::LogDebugUtilsMessage(XrDebugUtilsMessageSeverityFlag
     return (_user_callback(message_severity, message_type, callback_data, _user_data) == XR_TRUE);
 }
 
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 
 static inline android_LogPriority LoaderToAndroidLogPriority(XrLoaderLogMessageSeverityFlags message_severity) {
     if (0 != (message_severity & XR_LOADER_LOG_MESSAGE_SEVERITY_ERROR_BIT)) {
@@ -272,7 +272,7 @@ std::unique_ptr<LoaderLogRecorder> MakeDebugUtilsLoaderLogRecorder(const XrDebug
     return std::make_unique<DebugUtilsLogRecorder>(create_info, debug_messenger);
 }
 
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 std::unique_ptr<LoaderLogRecorder> MakeLogcatLoaderLogRecorder() { return std::make_unique<LogcatLoaderLogRecorder>(); }
 #endif
 

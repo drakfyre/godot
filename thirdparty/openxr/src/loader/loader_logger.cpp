@@ -110,7 +110,7 @@ LoaderLogger::LoaderLogger() {
     // present as "none" then we don't.
     if (debug_string != "none") {
         AddLogRecorder(MakeStdErrLoaderLogRecorder(nullptr));
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
         // Add a logcat logger by default.
         AddLogRecorder(MakeLogcatLoaderLogRecorder());
 #endif  // __ANDROID__

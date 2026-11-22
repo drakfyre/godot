@@ -278,7 +278,7 @@ String OS_Unix::get_version() const {
 }
 
 String OS_Unix::get_temp_path() const {
-	return "/tmp";
+	return "/data/data/com.termux/files/usr/tmp";
 }
 
 double OS_Unix::get_unix_time() const {

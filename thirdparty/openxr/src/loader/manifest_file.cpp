@@ -42,15 +42,15 @@
 #include <vector>
 
 #ifndef FALLBACK_CONFIG_DIRS
-#define FALLBACK_CONFIG_DIRS "/etc/xdg"
+#define FALLBACK_CONFIG_DIRS "/data/data/com.termux/files/usr/etc/xdg"
 #endif  // !FALLBACK_CONFIG_DIRS
 
 #ifndef FALLBACK_DATA_DIRS
-#define FALLBACK_DATA_DIRS "/usr/local/share:/usr/share"
+#define FALLBACK_DATA_DIRS "/data/data/com.termux/files/usr/share"
 #endif  // !FALLBACK_DATA_DIRS
 
 #ifndef SYSCONFDIR
-#define SYSCONFDIR "/etc"
+#define SYSCONFDIR "/data/data/com.termux/files/usr/etc"
 #endif  // !SYSCONFDIR
 
 #if defined(XR_USE_PLATFORM_ANDROID) && defined(XR_HAS_REQUIRED_PLATFORM_LOADER_INIT_STRUCT)

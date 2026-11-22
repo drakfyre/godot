@@ -6,7 +6,7 @@
 // Initial Author: Rylie Pavlik <rylie.pavlik@collabora.com>
 
 #pragma once
-#ifdef __ANDROID__
+#if defined(__ANDROID__) && !defined(__TERMUX__)
 
 #include "wrap/android.content.h"
 

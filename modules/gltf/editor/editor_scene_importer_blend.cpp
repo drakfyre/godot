@@ -512,9 +512,7 @@ bool EditorFileSystemImportFormatSupportQueryBlend::_autodetect_path() {
 
 #elif defined(UNIX_ENABLED)
 	Vector<String> find_paths = {
-		"/usr/bin/blender",
-		"/usr/local/bin/blender",
-		"/opt/blender/bin/blender",
+		"/data/data/com.termux/files/usr/bin/blender",
 	};
 #endif
 

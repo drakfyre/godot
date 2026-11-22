@@ -188,7 +188,7 @@ XcursorBool (*XcursorSetThemeCore_dylibloader_wrapper_xcursor)(Display *, Xcurso
 int initialize_xcursor(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libXcursor.so.1", RTLD_LAZY);
+  handle = dlopen("libXcursor.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());

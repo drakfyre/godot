@@ -1064,7 +1064,7 @@ pa_usec_t (*pa_rtclock_now_dylibloader_wrapper_pulse)( void);
 int initialize_pulse(int verbose) {
   void *handle;
   char *error;
-  handle = dlopen("libpulse.so.0", RTLD_LAZY);
+  handle = dlopen("libpulse.so", RTLD_LAZY);
   if (!handle) {
     if (verbose) {
       fprintf(stderr, "%s\n", dlerror());
