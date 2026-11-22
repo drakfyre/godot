@@ -101,7 +101,7 @@
 #define SDL_PLATFORM_LINUX 1
 #endif
 
-#if defined(ANDROID) || defined(__ANDROID__)
+#if (defined(ANDROID) || defined(__ANDROID__)) && !defined(SDL_TERMUX_AS_LINUX) /* Termux: build as plain Linux */
 
 /**
  * A preprocessor macro that is only defined if compiling for Android.

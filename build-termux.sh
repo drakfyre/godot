@@ -2,8 +2,8 @@
 # Build the Godot editor natively in Termux (Fathom / Quest 3, aarch64).
 # Settings follow termux-packages' x11-packages/godot recipe, but use Godot's
 # bundled thirdparty libs (so master doesn't depend on Termux lib versions)
-# and skip Wayland (we run under Termux:X11). SDL is the exception: the
-# bundled copy compiles Android-only code under Termux, so use system sdl3.
+# and skip Wayland (we run under Termux:X11). Bundled SDL is told to build
+# as plain Linux under Termux (SDL_TERMUX_AS_LINUX in drivers/sdl/SCsub).
 #
 #   ./build-termux.sh            editor build, -j4
 #   JOBS=6 ./build-termux.sh     more parallel jobs (watch RAM: ~7 GB total)
@@ -28,7 +28,6 @@ exec scons -j"$JOBS" \
 	wayland=no \
 	execinfo=yes \
 	module_camera_enabled=no \
-	builtin_sdl=no \
 	system_certs_path="$PREFIX/etc/tls/cert.pem" \
 	linkflags="-landroid-execinfo" \
 	CPPPATH="$PREFIX/include" \
